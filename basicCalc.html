@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Array using Angular</title>
+	<script src="Scripts/angular.min.js"></script>
+	<style type="text/css">
+		button {
+			width: 130px;
+		}
+	</style>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+	<center>
+	<table>
+		<tr>
+			<td>Input 1:</td>
+			<td><input type="text" ng-model="input1"></td>
+		</tr>
+		<tr>
+			<td>Input 2:</td>
+			<td><input type="text" ng-model="input2"></td>
+		</tr>
+		<tr>
+			<td><button ng-click="add()">Addition</button></td>
+			<td><button ng-click="sub()">Subtraction</button></td>
+		</tr>
+		<tr>
+			<td><button ng-click="mul()">Multiplication</button></td>
+			<td><button ng-click="div()">Division</button></td>
+		</tr>
+		<tr>
+			<td colspan="2"><p>{{ans}}</p></td>
+		</tr>
+	</table>
+	</center>
+	
+	<script>
+		var app = angular.module("myApp",[]);
+		app.controller("myCtrl",function($scope){
+			
+			$scope.ans;
+			var a,b;
+
+			$scope.add = function(){
+				a = parseInt($scope.input1);
+				b = parseInt($scope.input2);
+				$scope.ans = a + b;
+			}
+			
+			$scope.sub = function(){
+				a = parseInt($scope.input1);
+				b = parseInt($scope.input2);
+				$scope.ans = a - b;
+			}
+
+			$scope.mul = function(){
+				a = parseInt($scope.input1);
+				b = parseInt($scope.input2);
+				$scope.ans = a * b;
+			}
+
+			$scope.div = function(){
+				a = parseInt($scope.input1);
+				b = parseInt($scope.input2);
+				if (a>=0 && b>0) {
+					$scope.ans = a / b;
+				}else{
+					alert("Division operation can't perfrom with 0");
+				}
+			}
+
+		});
+	</script>
+</body>
+</html>
